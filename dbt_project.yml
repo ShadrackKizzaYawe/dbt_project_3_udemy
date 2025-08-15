@@ -41,8 +41,6 @@ vars:
 models:
   dbt_project_3_udemy:
     +materialized: view
-    +post_hook:
-      - "GRANT SELECT ON {{ this }} TO ROLE REPORTER"
     dim:
       +materialized: table
     staging:
