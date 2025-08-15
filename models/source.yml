@@ -1,0 +1,24 @@
+version: 2
+sources:
+  - name: AIRBNB
+    database: AIRBNB
+    schema: RAW
+    tables:
+      - name: RAW_HOSTS
+      - name: RAW_LISTINGS
+        columns:
+          - name: room_type
+            tests:
+              - dbt_expectations.expect_column_distinct_count_to_equal:
+                  value: 4
+
+      - name: RAW_REVIEWS
+        loaded_at_field: date
+        freshness: 
+          error_after:
+            count: 24
+            period: hour
+          warn_after:
+            count: 1
+            period: hour
+        

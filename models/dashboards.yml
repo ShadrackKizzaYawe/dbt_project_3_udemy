@@ -1,0 +1,17 @@
+version: 2
+
+exposures:
+  - name: dbt_dashboard
+    label: Executive Dashboard
+    type: dashboard
+    maturity: low
+    url: https://app.fabric.microsoft.com/groups/a1e3bc4e-1eb2-4315-b2e0-65c431e4a4d2/dashboards/cb45ab51-ad1b-4a2d-8f3d-01c755f0f8e6?ctid=5a4facd5-1861-4668-8f19-1bd1eb020515&pbi_source=linkShare
+    description: Executive Dashboard about Airbnb listings and hosts
+      
+
+    depends_on:
+      - ref('mart_fullmoon_reviews')
+
+    owner:
+      name: Test
+      email: test@fabriclearnergmail.onmicrosoft.com
